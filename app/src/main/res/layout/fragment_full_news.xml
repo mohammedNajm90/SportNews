@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fullNews">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/newImage"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:src="@mipmap/test_img"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="true"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintCircleRadius="60dp"/>
+    <TextView
+        android:id="@+id/titleNews"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="Barcelona Sells Additional 25% Stake in Media Arm for $102M"
+        app:layout_constraintTop_toBottomOf="@id/newImage"
+        android:textSize="18sp"
+        android:layout_margin="8dp"
+        android:textStyle="bold"
+        />
+    <TextView
+        android:id="@+id/datePublish"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/titleNews"
+        app:layout_constraintTop_toBottomOf="@id/titleNews"
+        android:textSize="14sp"
+        android:text="2022-08-16T01:00:00Z"/>
+    <TextView
+        android:id="@+id/sourceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/titleNews"
+        app:layout_constraintTop_toBottomOf="@id/titleNews"
+        android:textSize="14sp"
+        android:text="Youm7.com"/>
+    <TextView
+        android:id="@+id/fullReport"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/titleNews"
+        app:layout_constraintStart_toStartOf="@id/titleNews"
+        app:layout_constraintTop_toBottomOf="@id/datePublish"
+        android:textSize="14sp"
+        android:justificationMode="inter_word"
+        android:text="FC Barcelona has agreed to sell a 24.5% stake in Barca Studios, the club’s media production arm, for $102 million — marking its second minority stake sale this month.
+        The La Liga club — which reported more than $1.5 billion in debt in October 2021 — will sell the minority stake to investment fund GDA Luma, according to Spanish daily newspaper Sport.
+        The deal comes after Barcelona was unable to register players for the upcoming season.
+        In June, the club leadership said $535 million was needed to avoid financial devastation."/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        app:layout_constraintTop_toBottomOf="@id/fullReport"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/btn_shape"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
