@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.appbook.base.BaseFragment
 import com.example.sportnews.R
-import com.example.sportnews.databinding.FragmentRecicleNewsDataBinding
+import com.example.sportnews.databinding.ItemNewsBinding
 
 
 
-class RecicleNewsData: BaseFragment<FragmentRecicleNewsDataBinding>() {
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentRecicleNewsDataBinding = FragmentRecicleNewsDataBinding::inflate
+class RecicleNewsData: BaseFragment<ItemNewsBinding>() {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemNewsBinding = ItemNewsBinding::inflate
 
 }
