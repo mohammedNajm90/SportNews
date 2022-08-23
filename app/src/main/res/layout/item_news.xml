@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.RecicleNewsData">
+    tools:context=".ui.RecicleNewsData"
+    android:background="#ffffffff">
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="228dp"
@@ -14,16 +15,16 @@
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent"
     app:cardCornerRadius="10dp"
-    android:background="@color/gray"
     android:elevation="8dp">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+
         >
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/newImage"
             android:layout_width="match_parent"
-            android:layout_height="170dp"
+            android:layout_height="@dimen/item_height"
             android:src="@mipmap/test_img"
             android:scaleType="centerCrop"
             android:adjustViewBounds="true"
@@ -36,9 +37,9 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:textStyle="bold"
-            android:text="Barcelona Sells Additional 25% Stake in Media Arm for $102M"
+            android:text="@string/test_title"
             app:layout_constraintTop_toBottomOf="@id/newImage"
-            android:textSize="16sp"
+            android:textSize="@dimen/title_size"
             />
         <TextView
             android:id="@+id/datePublish"
@@ -46,16 +47,16 @@
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleNews"
-            android:textSize="14sp"
-            android:text="2022-08-16T01:00:00Z"/>
+            android:textSize="@dimen/font_size"
+            android:text="@string/test_date"/>
         <TextView
             android:id="@+id/sourceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/titleNews"
-            android:textSize="14sp"
-            android:text="Youm7.com"/>
+            android:textSize="@dimen/font_size"
+            android:text="@string/test_author"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
 

@@ -10,8 +10,8 @@ import com.example.sportnews.R
 import com.example.sportnews.databinding.ItemNewsBinding
 
 
-
-class RecicleNewsData: BaseFragment<ItemNewsBinding>() {
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemNewsBinding = ItemNewsBinding::inflate
+class RecicleNewsData : BaseFragment<ItemNewsBinding>() {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> ItemNewsBinding =
+        ItemNewsBinding::inflate
 
 }

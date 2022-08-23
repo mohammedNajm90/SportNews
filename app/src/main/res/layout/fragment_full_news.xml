@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     tools:context=".ui.FullNews">
 
@@ -11,61 +11,67 @@
         android:id="@+id/newImage"
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:src="@mipmap/test_img"
-        android:scaleType="centerCrop"
         android:adjustViewBounds="true"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/test_img"
+        app:layout_constraintCircleRadius="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintCircleRadius="60dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="#ffffffff"/>
+
     <TextView
         android:id="@+id/titleNews"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:text="Barcelona Sells Additional 25% Stake in Media Arm for $102M"
-        app:layout_constraintTop_toBottomOf="@id/newImage"
-        android:textSize="18sp"
         android:layout_margin="8dp"
+        android:text="@string/test_title"
+        android:textSize="18sp"
         android:textStyle="bold"
-        />
+        app:layout_constraintTop_toBottomOf="@id/newImage"
+        android:background="@color/white"/>
+
     <TextView
         android:id="@+id/datePublish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/test_date"
+        android:textSize="@dimen/font_size"
         app:layout_constraintStart_toStartOf="@id/titleNews"
         app:layout_constraintTop_toBottomOf="@id/titleNews"
-        android:textSize="14sp"
-        android:text="2022-08-16T01:00:00Z"/>
+        android:background="@color/white"/>
+
     <TextView
         android:id="@+id/sourceName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/test_author"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/titleNews"
         app:layout_constraintTop_toBottomOf="@id/titleNews"
-        android:textSize="14sp"
-        android:text="Youm7.com"/>
+        android:background="@color/white"/>
+
     <TextView
         android:id="@+id/fullReport"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:justificationMode="inter_word"
+        android:text="@string/test_author"
+        android:textSize="@dimen/font_size"
         app:layout_constraintEnd_toEndOf="@id/titleNews"
         app:layout_constraintStart_toStartOf="@id/titleNews"
         app:layout_constraintTop_toBottomOf="@id/datePublish"
-        android:textSize="14sp"
-        android:justificationMode="inter_word"
-        android:text="FC Barcelona has agreed to sell a 24.5% stake in Barca Studios, the club’s media production arm, for $102 million — marking its second minority stake sale this month.
-        The La Liga club — which reported more than $1.5 billion in debt in October 2021 — will sell the minority stake to investment fund GDA Luma, according to Spanish daily newspaper Sport.
-        The deal comes after Barcelona was unable to register players for the upcoming season.
-        In June, the club leadership said $535 million was needed to avoid financial devastation."/>
+        android:background="@color/white"/>
+
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/backBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/btn_shape"
         android:text="Back"
-        app:layout_constraintTop_toBottomOf="@id/fullReport"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@drawable/btn_shape"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fullReport" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

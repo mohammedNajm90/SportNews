@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">SportNews</string>
+    <string name="app_name">اخبار الرياضة</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="test_date">2022-08-16T01:00:00Z</string>
+    <string name="test_author">Youm7.com</string>
+    <string name="test_title">Barcelona Sells Additional 25% Stake in Media Arm for $102M</string>
 </resources>

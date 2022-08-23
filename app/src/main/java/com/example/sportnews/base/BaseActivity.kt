@@ -9,7 +9,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     abstract val bindingInflater: (LayoutInflater) -> VB
     lateinit var binding: VB
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = bindingInflater(layoutInflater)

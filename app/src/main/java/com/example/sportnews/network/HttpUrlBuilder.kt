@@ -6,7 +6,7 @@ import com.example.sportnews.util.Constants
 import okhttp3.HttpUrl
 
 class HttpUrlBuilder {
-     fun buildHttpUrl() = with(Constants.HttpUrl) {
+    fun buildHttpUrl() = with(Constants.HttpUrl) {
         val keys = Constants.HttpUrl.Keys
         val values = Constants.HttpUrl.Values
 

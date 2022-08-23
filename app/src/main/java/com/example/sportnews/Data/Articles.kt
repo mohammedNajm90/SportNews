@@ -12,5 +12,5 @@ data class Articles(
     @SerializedName("urlToImage") val urlToImage: String?,
     @SerializedName("publishedAt") val publishedAt: String?,
     @SerializedName("content") val content: String?
-):Serializable
+) : Serializable
 

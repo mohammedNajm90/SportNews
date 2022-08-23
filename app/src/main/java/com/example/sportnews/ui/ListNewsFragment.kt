@@ -16,20 +16,25 @@ import com.example.sportnews.adpter.AdapterNewsList
 import com.example.sportnews.databinding.FragmentHomeBinding
 import com.example.sportnews.network.State
 import com.example.sportnews.news.NewsRepository
+import com.mustafa.weatherapp.util.extensions.hide
+import com.mustafa.weatherapp.util.extensions.show
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 
-class ListNewsFragment: BaseFragment<FragmentHomeBinding>(), NewsInteractionListener {
-    val fullNews= FullNews()
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding = FragmentHomeBinding::inflate
+class ListNewsFragment : BaseFragment<FragmentHomeBinding>(), NewsInteractionListener {
+    val fullNews = FullNews()
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentHomeBinding =
+        FragmentHomeBinding::inflate
     val newsRepository = NewsRepository()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         requestBookData()
     }
+
     private fun requestBookData() {
         lifecycleScope.launch(Dispatchers.Main) {
-            newsRepository.getNewsInfo().collect { state ->
+            newsRepository.getNewsInfo().catch{ showFailState()}.collect{ state ->
                 showResponseState(state)
             }
         }
@@ -42,18 +47,30 @@ class ListNewsFragment: BaseFragment<FragmentHomeBinding>(), NewsInteractionList
     }
 
     private fun showFailState() {
-        Log.i("AAAA", "AMEER")
+        binding.apply {
+            cropSuccessState.hide()
+            cropFail.show()
+        }
     }
 
     private fun showLoadingState() {
-        Log.i("AAAA", "AMEER")
+        binding.apply {
+            cropLoading.show()
+            cropSuccessState.hide()
+            cropFail.hide()
+        }
     }
 
     private fun showSuccessState(responseData: List<Articles>) {
-        bindBooksData(responseData)
+        binding.apply {
+            cropSuccessState.show()
+            cropLoading.hide()
+            cropFail.hide()
+        }
+        bindNewsData(responseData)
     }
 
-    private fun bindBooksData(news: List<Articles>){
+    private fun bindNewsData(news: List<Articles>) {
         val adpater = AdapterNewsList(news, this)
         binding.recyclerView.adapter = adpater
     }
@@ -64,9 +81,10 @@ class ListNewsFragment: BaseFragment<FragmentHomeBinding>(), NewsInteractionList
         fullNews.arguments = bundle
         openFragment(fullNews)
     }
-    fun openFragment(fragment:Fragment){
-        val transaction= activity?.supportFragmentManager?.beginTransaction()
-        transaction?.add(R.id.fragment_container,fragment)
+
+    fun openFragment(fragment: Fragment) {
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
+        transaction?.add(R.id.fragment_container, fragment)
         transaction?.commit()
     }
 

@@ -13,17 +13,18 @@ import com.example.sportnews.databinding.FragmentFullNewsBinding
 import com.example.sportnews.util.Constants.HttpUrl.Values.NULL_Image
 
 
-class FullNews: BaseFragment<FragmentFullNewsBinding>() {
-    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFullNewsBinding = FragmentFullNewsBinding::inflate
+class FullNews : BaseFragment<FragmentFullNewsBinding>() {
+    override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentFullNewsBinding =
+        FragmentFullNewsBinding::inflate
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val news = arguments?.getSerializable("Yaali") as Articles
         binding.apply {
-            if (news.urlToImage != null){
+            if (news.urlToImage != null) {
                 Glide.with(this.root).load(news.urlToImage).into(newImage)
-            }
-            else{Glide.with(this.root).load(NULL_Image).into(newImage)
+            } else {
+                Glide.with(this.root).load(NULL_Image).into(newImage)
 
             }
             titleNews.text = news.title?.toString()
@@ -39,7 +40,7 @@ class FullNews: BaseFragment<FragmentFullNewsBinding>() {
     }
 
     private fun backFunction(fragment: Fragment) {
-        val transaction= activity?.supportFragmentManager?.beginTransaction()
+        val transaction = activity?.supportFragmentManager?.beginTransaction()
         transaction?.remove(fragment)
         transaction?.commit()
     }
